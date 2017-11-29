@@ -1,0 +1,12 @@
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\bin\Debug\Snippet.exe.config
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\bin\Debug\Snippet.exe
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\bin\Debug\Snippet.pdb
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.csprojResolveAssemblyReference.cache
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.Properties.Resources.resources
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.frmSnippet.resources
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.csproj.GenerateResource.Cache
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.csproj.CoreCompileInputs.cache
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.exe
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.pdb
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.frmNewFile.resources
+C:\Users\iHateWindows\source\repos\Snippet\Snippet\obj\Debug\Snippet.frmAddLanguage.resources
