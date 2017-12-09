@@ -79,7 +79,7 @@
             this.lblSelectLang.AutoSize = true;
             this.lblSelectLang.Location = new System.Drawing.Point(9, 22);
             this.lblSelectLang.Name = "lblSelectLang";
-            this.lblSelectLang.Size = new System.Drawing.Size(91, 13);
+            this.lblSelectLang.Size = new System.Drawing.Size(103, 13);
             this.lblSelectLang.TabIndex = 6;
             this.lblSelectLang.Text = "Select Language:";
             // 
@@ -93,10 +93,11 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.cbLanguages);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmNewFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New File";
+            this.Text = "New Snippet";
             this.Load += new System.EventHandler(this.frmNewFile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
