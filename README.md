@@ -1,9 +1,9 @@
 # Snippet
 
 
-# To graders: 
-# When application is first run, it creates a directory called "Snippet" in: C:\Users\%USER%\AppData\Roaming
-# There is currently no way to delete folders/files from the program so you'll need to manually delete
-#   files from that location when doing testing
+Please see the user's guide [here](http://twodell.com/projects/Snippet/wiki.html).
 
-User's guide: http://twodell.com/projects/Snippet/wiki.html
+### Future Plans
+* Add functionality to delete snippets
+* Add menubar
+* Add a settings form to allow users to set custom themes, preferred file storage location, etc.
