@@ -38,6 +38,7 @@ namespace Snippet
             this.BackColor = System.Drawing.Color.White;
             this.GotFocus += TextBoxGotFocus;
             this.Cursor = Cursors.Arrow; // mouse cursor like in other controls
+            this.TabSize = 4; // set number of spaces for tab
         }
 
         private void TextBoxGotFocus(object sender, EventArgs args)
@@ -50,6 +51,12 @@ namespace Snippet
             {
                 ShowCaret(this.Handle);
             }
+        }
+
+        public int TabSize
+        {
+            get;
+            set;
         }
     }
 }

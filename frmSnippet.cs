@@ -232,6 +232,15 @@ namespace Snippet
             busy = false;
         }
 
+        /* tbSnipBody_KeyDown
+         * Checks to see if event key is a Tab, and if so it replaces the default tab 
+         *   with 4 spaces and then suppresses the default tab
+         */
+        private void tbSnipBody_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
         /*------------------------------------------------------------------------------------------
          * Other Functions
          -----------------------------------------------------------------------------------------*/

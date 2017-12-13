@@ -98,10 +98,12 @@
             this.tbSnipName.ReadOnly = true;
             this.tbSnipName.Size = new System.Drawing.Size(408, 22);
             this.tbSnipName.TabIndex = 0;
+            this.tbSnipName.TabSize = 4;
             this.tbSnipName.TabStop = false;
             // 
             // tbSnipBody
             // 
+            this.tbSnipBody.AcceptsTab = true;
             this.tbSnipBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -114,6 +116,7 @@
             this.tbSnipBody.ReadOnly = true;
             this.tbSnipBody.Size = new System.Drawing.Size(775, 427);
             this.tbSnipBody.TabIndex = 4;
+            this.tbSnipBody.TabSize = 4;
             this.tbSnipBody.WordWrap = false;
             this.tbSnipBody.TextChanged += new System.EventHandler(this.txtSnipBody_TextChanged);
             // 
