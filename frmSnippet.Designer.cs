@@ -33,6 +33,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.tbSnipName = new Snippet.ReadOnlyTextBox();
             this.tbSnipBody = new Snippet.ReadOnlyTextBox();
             this.ntvFileDisplay = new Snippet.NativeTreeView();
@@ -84,6 +85,18 @@
             this.btnNew.Text = "New...";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(335, 501);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(87, 25);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tbSnipName
             // 
@@ -140,6 +153,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(1031, 540);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.tbSnipName);
             this.Controls.Add(this.tbSnipBody);
             this.Controls.Add(this.ntvFileDisplay);
@@ -149,7 +163,7 @@
             this.Controls.Add(this.btnQuit);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(674, 320);
+            this.MinimumSize = new System.Drawing.Size(774, 320);
             this.Name = "frmSnippet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snippet";
@@ -168,6 +182,7 @@
         private NativeTreeView ntvFileDisplay;
         private ReadOnlyTextBox tbSnipBody;
         private ReadOnlyTextBox tbSnipName;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

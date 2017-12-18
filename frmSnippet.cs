@@ -107,33 +107,49 @@ namespace Snippet
             } // panel will be disposed and the form will "lighten" again...
         }
 
+        /* btnDelete_Click
+         * Deletes current file after user confirms. Also deletes the parent
+         *   directory if that directory is empty.
+         * Then reloads the file display.
+         */
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (ntvFileDisplay.SelectedNode != null)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this file?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    String selectedNodeParentPath = Path.Combine(rootDir, ntvFileDisplay.SelectedNode.Parent.Text.ToString());
+                    String selectedNodePath = Path.Combine(selectedNodeParentPath, ntvFileDisplay.SelectedNode.Text.ToString()+".txt");
+
+                    File.Delete(selectedNodePath);
+                    if (Directory.GetFiles(selectedNodeParentPath).Length == 0)
+                    {
+                        Directory.Delete(selectedNodeParentPath);
+                    }
+
+                    ntvFileDisplay.SelectedNode = null;
+                    loadFileDisplay();
+                }
+            }
+        }
+
         /* btnEdit_Click
          * If editOn then the Edit button has been clicked and the
-         *   current snippet displayed is editable. Upon pressing 
-         *   the button, the button text, textbox color, and textbox
-         *   functionality are changed and then the snippet is saved.
-         * Else the current snippet displayed is not editable, and 
-         *   upon button press we change button text, textbox color,
-         *   and textbox functionality to make snippet editable
+         *   current snippet displayed is editable. Toggles the editing
+         *   functionality and then the snippet is saved.
+         * Else the current snippet displayed is not editable, so 
+         *   it makes the snippet editable
          */
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (editOn)
             {
-                editOn = false;
-                fileChanged = false;
-                tbSnipBody.ReadOnly = true;
-                tbSnipBody.BackColor = Color.Gainsboro;
-                btnEdit.Text = "Edit";
+                toggleEditOff();
                 saveSnippet();
             }
             else
             {
-                editOn = true;
-                tbSnipBody.ReadOnly = false;
-                tbSnipBody.BackColor = SystemColors.Window;
-                tbSnipBody.Focus();
-                btnEdit.Text = "Save";
+                toggleEditOn();
             }            
         }
 
@@ -186,17 +202,31 @@ namespace Snippet
             {
                 if (e.Node.Parent != null)
                 {
-                    ntvFileDisplay.SelectedNode = e.Node;
-                    displaySnippet();
+                    if (editOn)
+                    {
+                        if (MessageBox.Show("Leave without saving?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            ntvFileDisplay.SelectedNode = e.Node;
+                            toggleEditOff();
+                            displaySnippet();
+                        }
+                    } 
+                    else
+                    {
+                        ntvFileDisplay.SelectedNode = e.Node;
+                        displaySnippet();
+                    }
                 }
             }
             if (ntvFileDisplay.SelectedNode == null)
             {
+                btnDelete.Enabled = false;
                 btnEdit.Enabled = false;
                 btnCopy.Enabled = false;
             }
             else
             {
+                btnDelete.Enabled = true;
                 btnEdit.Enabled = true;
                 btnCopy.Enabled = true;
             }
@@ -230,15 +260,6 @@ namespace Snippet
 
             sender = tb as object;
             busy = false;
-        }
-
-        /* tbSnipBody_KeyDown
-         * Checks to see if event key is a Tab, and if so it replaces the default tab 
-         *   with 4 spaces and then suppresses the default tab
-         */
-        private void tbSnipBody_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         /*------------------------------------------------------------------------------------------
@@ -282,6 +303,34 @@ namespace Snippet
                 var dirInfo = new DirectoryInfo(Path.Combine(rootDir, dir.Name));
                 ntvFileDisplay.Nodes.Add(CreateDirectoryNode(dirInfo));
             }
+        }
+
+        /* toggleEditOn
+         *   Make the current snippet editable. Change 
+         *   the button text, textbox color, and textbox
+         *   functionality
+         */
+        private void toggleEditOn()
+        {
+            editOn = true;
+            tbSnipBody.ReadOnly = false;
+            tbSnipBody.BackColor = SystemColors.Window;
+            tbSnipBody.Focus();
+            btnEdit.Text = "Save";
+        }
+
+        /* toggleEditOff
+         *   Make the current snippet uneditable. Change 
+         *   the button text, textbox color, and textbox
+         *   functionality
+         */
+        private void toggleEditOff()
+        {
+            editOn = false;
+            fileChanged = false;
+            tbSnipBody.ReadOnly = true;
+            tbSnipBody.BackColor = Color.Gainsboro;
+            btnEdit.Text = "Edit";
         }
 
         /* CreateDirectoryNode
