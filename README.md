@@ -9,3 +9,7 @@ Please see the user's guide [here](http://twodell.com/projects/Snippet/wiki.html
 - [ ] Add a settings form to allow users to set custom themes, preferred file storage location, etc.
 - [ ] Create installer package to put on website
 - [ ] Add additional documentation to website
+.
+.
+.
+- [ ] Maybe use GitHub API to sync Snippet with User's Gists?
